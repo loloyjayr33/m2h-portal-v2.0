@@ -1,0 +1,98 @@
+.tre-dashboard {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100vh
+}
+
+.tre-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.tre-header h1 {
+    margin: 0;
+    color: var(--primary-700)
+}
+
+.tre-header .subtitle {
+    margin-top: 6px;
+    color: var(--primary-500)
+}
+
+.tre-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px
+}
+
+.card {
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--card-glass), var(--surface));
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.06)
+}
+
+.card-title {
+    font-size: 13px;
+    color: var(--muted)
+}
+
+.card-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-700);
+    margin-top: 8px
+}
+
+.actions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.quick-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600
+}
+
+.tre-transactions {
+    margin-top: 12px
+}
+
+.table-wrap {
+    overflow-x: auto;
+    background: var(--surface);
+    padding: 12px;
+    border-radius: 10px
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+th,
+td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04)
+}
+
+th {
+    font-size: 13px;
+    color: var(--muted)
+}
+
+td {
+    color: var(--text)
+}
+
+@media (max-width:900px) {
+    .tre-summary {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}

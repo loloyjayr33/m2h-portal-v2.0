@@ -1,0 +1,280 @@
+/* Cleaned FinancialOverview styles */
+.financial-page {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100%;
+}
+
+.financial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.financial-header h1 {
+    margin: 0;
+    color: var(--primary-700);
+}
+
+.financial-header .subtitle {
+    margin: 6px 0 0 0;
+    color: var(--primary-500);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.date-filters input {
+    border: 1px solid var(--glass-border);
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: var(--surface);
+}
+
+.dash {
+    margin: 0 8px;
+    color: var(--muted);
+}
+
+.action-buttons .btn {
+    margin-left: 8px
+}
+
+.finance-summary .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.summary-card {
+    background: linear-gradient(180deg, var(--card-glass), var(--surface));
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.06);
+}
+
+.summary-card .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--primary-700);
+}
+
+.card-spark {
+    width: 72px;
+    height: 28px
+}
+
+.sparkline {
+    width: 100%;
+    height: 28px
+}
+
+.summary-card .card-value {
+    font-size: 20px;
+    margin-top: 10px;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.summary-card .card-meta {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.summary-card.income {
+    border-left: 4px solid var(--primary)
+}
+
+.summary-card.expenses {
+    border-left: 4px solid #d9480f
+}
+
+.summary-card.balance {
+    border-left: 4px solid #2b8a3e
+}
+
+.finance-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px
+}
+
+.chart-panel,
+.transactions-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
+    border-radius: 12px;
+    padding: 16px
+}
+
+.panel-title {
+    font-weight: 700;
+    color: #123827;
+    margin-bottom: 12px
+}
+
+.chart-placeholder {
+    height: 260px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2b6a4f;
+    background: linear-gradient(180deg, rgba(45, 106, 79, 0.03), rgba(45, 106, 79, 0.01))
+}
+
+.transactions-scroll {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 6px
+}
+
+.transactions-list {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    align-items: center
+}
+
+.transaction-item .tx-left {
+    min-width: 0
+}
+
+.transaction-item.positive .tx-amount {
+    color: #1b7a3e
+}
+
+.transaction-item.negative .tx-amount {
+    color: #c92a2a
+}
+
+.tx-type {
+    font-weight: 700;
+    color: #14532d
+}
+
+.tx-desc {
+    color: #2f6f53;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.tx-right {
+    text-align: right
+}
+
+.tx-amount {
+    font-weight: 700
+}
+
+.tx-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.tx-status {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: rgba(46, 125, 50, 0.08);
+    color: #2e7d32
+}
+
+.tx-status.due {
+    background: rgba(255, 243, 205, 0.9);
+    color: #b45309
+}
+
+.tx-date {
+    font-size: 12px;
+    color: #587a66
+}
+
+@media (max-width: 900px) {
+    .finance-main {
+        grid-template-columns: 1fr
+    }
+
+    .finance-summary .summary-grid {
+        grid-template-columns: 1fr
+    }
+
+    .header-actions {
+        flex-direction: column;
+        align-items: flex-end
+    }
+}
+
+.transactions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.transaction-item.positive .tx-amount {
+    color: #1b7a3e;
+}
+
+.transaction-item.negative .tx-amount {
+    color: #c92a2a;
+}
+
+.tx-left .tx-type {
+    font-weight: 700;
+    color: #14532d
+}
+
+.tx-left .tx-desc {
+    color: #2f6f53;
+    font-size: 13px
+}
+
+.tx-right {
+    text-align: right
+}
+
+.tx-date {
+    font-size: 12px;
+    color: #587a66
+}
+
+@media (max-width: 900px) {
+    .finance-main {
+        grid-template-columns: 1fr;
+    }
+
+    .finance-summary .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
