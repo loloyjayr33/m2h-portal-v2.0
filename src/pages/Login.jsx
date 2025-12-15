@@ -29,11 +29,24 @@ export default function Login() {
                 return;
             }
 
-            const { data: userData } = await supabase
+            const { data: userData, error: userError } = await supabase
                 .from("users")
                 .select("role")
                 .eq("email", email)
                 .single();
+
+            if (userError) {
+                console.error('Failed to fetch user role:', userError);
+                setError(userError.message || 'Could not fetch user role.');
+                setIsLoading(false);
+                return;
+            }
+
+            if (!userData) {
+                setError('User record not found. Please contact support.');
+                setIsLoading(false);
+                return;
+            }
 
             localStorage.setItem("role", userData.role);
             localStorage.setItem("email", email);
@@ -45,7 +58,8 @@ export default function Login() {
             else if (userData.role === "occupant") navigate("/occupant");
             else navigate("/"); // fallback
         } catch (err) {
-            setError("An unexpected error occurred. Please try again.");
+            console.error(err);
+            setError(err?.message || "An unexpected error occurred. Please try again.");
         } finally {
             setIsLoading(false);
         }
