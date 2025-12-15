@@ -29,11 +29,12 @@ export default function Login() {
                 return;
             }
 
-            const { data: userData, error: userError } = await supabase
+            // Use limit(1) and handle array result to avoid "cannot coerce the result to a single JSON object"
+            const { data: usersArray, error: userError } = await supabase
                 .from("users")
                 .select("role")
                 .eq("email", email)
-                .single();
+                .limit(1);
 
             if (userError) {
                 console.error('Failed to fetch user role:', userError);
@@ -41,6 +42,8 @@ export default function Login() {
                 setIsLoading(false);
                 return;
             }
+
+            const userData = Array.isArray(usersArray) && usersArray.length > 0 ? usersArray[0] : null;
 
             if (!userData) {
                 setError('User record not found. Please contact support.');
